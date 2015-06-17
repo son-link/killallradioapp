@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src *; img-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link href="css/mui.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/app.css" rel="stylesheet" type="text/css" />
+		<title>Killall Radio</title>
+    </head>
+    <body>
+		<div class="mui-appbar">
+			<table width="100%">
+				<tr style="vertical-align:middle;">
+					<td class="mui-appbar-height mui-text-title mui-text-white">Killall Radio</td>
+				</tr>
+			</table>
+		</div>
+		<ul class="mui-tabs mui-tabs-justified" id="tabs">
+			<li class="mui-active"><a data-mui-toggle="tab" data-mui-controls="radio">Radio</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="news">Noticias</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="podcasts">Podcasts</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="sobre">Sobre</a></li>
+		</ul>
+		<div class="mui-tab-content">
+			<div class="mui-tab-pane mui-active" id="radio">
+				<div class="msgs mui-z1">
+					<img src="img/killall_logo.png" style="margin: 5px auto; display: block" class="radio"/>
+					Pulsa sobre el logo para empezar a escucharnos en directo o pulsa sobre el icono con forma de radio que veras abajo a la derecha desde cualquier pestaña.
+				</div>
+			</div>
+			<div class="mui-tab-pane" id="news"></div>
+			<div class="mui-tab-pane" id="podcasts"></div>
+			<div class="mui-tab-pane" id="sobre">
+				<div class="msgs mui-z1">
+					<img src="img/killall_logo.png" style="margin: 5px auto; display: block"/>
+					Proyecto online colaborativo hecho por amigos para todo el mundo.<br />
+					Tu Radio Geek Online<br />
+					Siguenos en:
+					<ul>
+						<li class="icon-web"><a href="https://killallradio.wordpress.com/">Blog</a></li>
+						<li class="icon-twitter"><a href="https://twitter.com/killallradio">Twitter</a></li>
+						<li class="icon-gplus"><a href="https://plus.google.com/communities/101505410753494407114">Google+</a></li>
+					</ul>
+					Aplicación creada por Alfonso Saavedra "Son Link"
+				</div>
+			</div>
+		</div>
+		<div class="mui-panel" id="controles">
+			<a href="" id="player_button" title="Reproducir"><img src="img/icons/play.png" /></a>
+			<div id="seekbar">
+				<marquee id="estado">En directo</marquee>
+				<input type="range" id="seekbar-progress">
+			</div>
+			<a href="" id="radio_button" class="radio" title="Escuchar en directo" style="float: right;"><img src="img/icons/radio.png" /></a>
+		</div>
+
+		<script type="text/html" id="feeds">
+			<div class="msgs mui-z1">
+				<h3>{%title%}</h3>
+				<h5>Publicado el {%pubDate%}</h5>
+				<div>{%description%}</div>
+				<a class="leermas" href="#" data-id="{%id%}">Leer más</a>
+			</div>
+		</script>
+		<script type="text/html" id="podcasts_list">
+			<div class="msgs mui-z1">
+				<h3>{%title%}</h3>
+				<h5>Publicado el {%pubDate%}</h5>
+				<div>{%description%}</div>
+				<a class="escuchar_podcast" href="{%url%}">Escuchar</a>
+			</div>
+		</script>
+		<script type="text/html" id="with_media">
+			<div class="msgs mui-z1">
+				<div class="tuit-header">
+					<table>
+						<tr>
+							<td rowspan="2"><img class="tuit-avatar" src="{%avatar%}"/>
+							<td><h5 class="autor">{%name%}</h5></td>
+						</tr>
+						<tr>
+							<td><span>{%date%}</span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="msg">{%text%}</div>
+				<div><img class="pure-img "src="{%media%}" /></div>
+			</div>
+		</script>
+		<script type="text/html" id="no_media">
+			<div class="msgs mui-z1">
+				<div class="tuit-header">
+					<table>
+						<tr>
+							<td rowspan="2"><img class="circle responsive-img" src="{%avatar%}"/>
+							<td><h5 class="autor">{%name%}</h5></td>
+						</tr>
+						<tr>
+							<td><span>{%date%}</span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="msg">{%text%}</div>
+			</div>
+		</script>
+		<script src="cordova.js"></script>
+		<script src="Notifier.js"></script>
+		<script src="plugins/cordova-plugin-device/www/device.js"></script>
+		<script src="console-via-logger.js"></script>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/microtmpl.js"></script>
+		<script src="js/app.js"></script>
+    </body>
+</html>

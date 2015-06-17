@@ -1,0 +1,36 @@
+{
+	"version": "0.0.1",
+	"name": "Killall Radio",
+	"description": "Aplicación oficial de Killall Radio",
+	"launch_path": "/index.html",
+	"icons": {
+		"16": "/img/icons/icon16x16.png",
+		"48": "/img/icons/icon48x48.png",
+		"60": "/img/icons/icon60x60.png",
+		"128": "/img/icons/icon128x128.png",
+		"284": "/img/icons/icon284x284.png"
+	},
+	"developer": {
+		"name": "Alfonso Saavedra 'Son Link'",
+		"url": "http://killallradio.tk"
+	},
+	"permissions": {
+		"systemXHR": {
+			"description":"Para obtener los datos"
+		},
+		"backgroundservice": {
+			"description": "Necesario para poder seguir ejecutandose en segundo plano"
+		},
+		"audio-channel-content": {
+			"description": "Necesario para que siga reproduciendo en segundo plano"
+		},
+		"desktop-notification":{
+			"description": "Needed for show the notifications"
+		}
+	},
+	"installs_allowed_from": [
+		"*"
+	],
+	"type": "privileged",
+	"default_locale": "es"
+}
