@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="fr.julienmarcou.smartnotifier"
+	version="0.1.0">
+
+	<!-- Information -->
+	<name>Smart Notifier</name>
+	<description>An easy way to push notifications into the notifications area of your smartphone from your app</description>
+	<author href="http://julien-marcou.fr">Julien Marcou</author>
+	<keywords>notification,notifications,notifier,notif,push</keywords>
+	<license>Apache 2.0</license>
+    <repo>https://github.com/Julien-Marcou/Smart-Notifier.git</repo>
+    <issue>https://github.com/Julien-Marcou/Smart-Notifier/issues</issue>
+
+	<!-- Assets -->
+	<asset src="www/img" target="smart-notifier" />
+
+	<!-- JavaScript Interface -->
+	<js-module src="www/Notifier.js" name="Notifier">
+		<clobbers target="Notifier" />
+	</js-module>
+
+	<!-- Android Platform -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Notifier">
+				<param name="android-package" value="fr.julienmarcou.smartnotifier.Notifier"/>
+			</feature>
+		</config-file>
+		<lib-file src="android/libs/android-support-v4.jar" />
+		<source-file src="android/Notifier.java" target-dir="src/fr/julienmarcou/smartnotifier" />
+		<resource-file src="www/img/icon-default.png" target="res/drawable/icon_smartnotifier_default.png" />
+		<resource-file src="www/img/icon-error.png" target="res/drawable/icon_smartnotifier_error.png" />
+		<resource-file src="www/img/icon-success.png" target="res/drawable/icon_smartnotifier_success.png" />
+		<resource-file src="www/img/icon-calendar.png" target="res/drawable/icon_smartnotifier_calendar.png" />
+	</platform>
+
+</plugin>

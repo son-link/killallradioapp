@@ -1,0 +1,35 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"firefoxos-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        },
+        "fr.julienmarcou.smartnotifier": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        }
+    },
+    "dependent_plugins": {}
+}

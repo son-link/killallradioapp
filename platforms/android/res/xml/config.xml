@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.sonlink.killallradio" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Notifier">
+        <param name="android-package" value="fr.julienmarcou.smartnotifier.Notifier" />
+    </feature>
+    <allow-intent href="market:*" />
+    <name>Killall Radio</name>
+    <description>
+        Aplicación oficial de Killall radio
+    </description>
+    <author email="sonlink.dourden@gmail.com" href="https://github.com/son-link">
+       Alfonso Saavedra "Son Link"
+    </author>
+    <content src="index.html" />
+    <preference name="KeepRunning" value="false" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+</widget>
