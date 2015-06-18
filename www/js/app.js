@@ -105,9 +105,9 @@ $('.radio').click(function(e){
 	player.src = 'http://188.226.176.70:8000/killallradio'
 	button.attr('src', 'img/icons/pause.png');
 	if (platform == 'firefoxos'){
-		notifyMe(txt);
+		notifyMe('En directo');
 	}else{
-		nowListen(txt);
+		nowListen('En directo');
 	}
 	player.play();
 })
@@ -245,3 +245,12 @@ function onDeviceReady() {
 function onPause(){
 	Notifier.notify("Killall Radio", nowListen);
 }
+
+window.addEventListener('unload', function () {
+	// For stop playing on app closed
+	if (player){
+		player.pause();
+		player.src = '';
+		player = null;
+	}
+});

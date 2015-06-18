@@ -31,5 +31,6 @@
 	"installs_allowed_from": [
 		"*"
 	],
+	"type": "privileged",
 	"default_locale": "es"
 }
