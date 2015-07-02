@@ -1,6 +1,13 @@
 var noticias = new Object();
 var podcasts_items = new Object();
 var player = new Audio('http://188.226.176.70:8000/killallradio');
+player.addEventListener("error", function(e){
+	console.error(e);
+	onError(_('stream_error'));
+	clearInterval(radio_interval);
+	player.pause();
+	player.src = '';
+});
 player.setAttribute('mozaudiochannel', 'content');
 var seekbar = document.getElementById('seekbar-progress');
 seekbar.disabled = true;
@@ -9,6 +16,7 @@ var tabs = ['news', 'podcasts', 'sobre'];
 var actual_tab = 0;
 var app;
 var platform; nowListen = 'Killall Radio';
+var dia_activo;
 function convertTime(date){
 	dateOptions = {
 		weekday: "long", year: "numeric", month: "short",
@@ -39,7 +47,7 @@ function getData(url, cb){
 		},
 		error: function(xhr, status, error) {
 			mui.overlay('off');
-			console.error(xhr);
+			console.error(error);
 		},
 		success: function(json) {
 			mui.overlay('off');
@@ -138,7 +146,7 @@ $('.escuchar_podcast').live('click', function(e){
 	if (platform == 'firefoxos'){
 		notifyMe(txt);
 	}else{
-		nowListen(txt);
+		Notifier.notify("Killall Radio", txt);
 	}
 	player.pause();
 	player.src = url;
@@ -241,6 +249,21 @@ function onDeviceReady() {
 	}, false);
 	//document.addEventListener("resume", onPause, false);
 }
+
+$(document).ready(function(){
+	$('.mostrar').click(function(e){
+		e.preventDefault();
+		id = $(this).attr('href');
+		if (dia_activo == id){
+			dia_activo = '';
+			$(id+' h3 + div').removeClass('active');
+		}else{
+			$(dia_activo+' h3 + div').removeClass('active');
+			$(id+' h3 + div').addClass('active');
+			dia_activo = id;
+		}
+	});
+});
 
 function onPause(){
 	Notifier.notify("Killall Radio", nowListen);
