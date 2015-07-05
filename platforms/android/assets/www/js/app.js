@@ -3,8 +3,6 @@ var podcasts_items = new Object();
 var player = new Audio('http://188.226.176.70:8000/killallradio');
 player.addEventListener("error", function(e){
 	console.error(e);
-	onError(_('stream_error'));
-	clearInterval(radio_interval);
 	player.pause();
 	player.src = '';
 });
@@ -28,7 +26,6 @@ function convertTime(date){
 }
 
 function getData(url, cb){
-	console.log(url);
 	loading = document.createElement('div');
 	loading.className = "loading";
 	loading.innerHTML = '<img src="img/loading.png" />';
@@ -68,6 +65,7 @@ function getNews(){
 			value.pubDate = convertTime(value.pubDate);
 			value.id = i;
 			i++;
+			value.title_encode = encodeURIComponent(value.title);
 			$('#news').append(MicroTmpl('feeds', value));
 		});
 		noticias = feed.item;
@@ -85,6 +83,8 @@ function getPodcasts(){
 			pod.title = value.title;
 			pod.description = value.description;
 			pod.url = value.enclosure.url;
+			pod.link = value.link;
+			pod.title_encode = encodeURIComponent(value.title);
 			$('#podcasts').append(MicroTmpl('podcasts_list', pod));
 			podcasts_items += (pod);
 		});
@@ -93,30 +93,30 @@ function getPodcasts(){
 
 $('#player_button').click(function(e){
 	e.preventDefault();
-	button = $('#player_button img');
+	button = $('#player_button i');
 	if (player.paused){
 		player.play();
-		button.attr('src', 'img/icons/pause.png');
+		button.removeClass('icon-play').addClass('icon-pause');
 	}else{
 		player.pause()
-		button.attr('src', 'img/icons/play.png');
+		button.removeClass('icon-pause').addClass('icon-play');
 	}
 });
 
 $('.radio').click(function(e){
 	e.preventDefault();
-	button = $('#player_button img');
+	button = $('#player_button i');
 	$('#estado').text('En directo');
 	player.pause();
 	seekbar.disabled = true;
 	player.removeEventListener('timeupdate', update_seekbar());
 	player.src = 'http://188.226.176.70:8000/killallradio'
-	button.attr('src', 'img/icons/pause.png');
+	button.removeClass('icon-play').addClass('icon-pause');
 	if (platform == 'firefoxos'){
 		notifyMe('En directo');
-	}else{
+	}/*else{
 		nowListen('En directo');
-	}
+	}*/
 	player.play();
 })
 
@@ -145,13 +145,13 @@ $('.escuchar_podcast').live('click', function(e){
 	//Notifier.notify("Killall Radio", txt);
 	if (platform == 'firefoxos'){
 		notifyMe(txt);
-	}else{
+	}/*else{
 		Notifier.notify("Killall Radio", txt);
-	}
+	}*/
 	player.pause();
 	player.src = url;
 	player.play();
-	$('#player_button img').attr('src', 'img/icons/pause.png');
+	$('#player_button i').removeClass('icon-play').addClass('icon-pause');
 	seekbar.disabled = false;
 	seekbar.addEventListener("change", function(){
 		player.currentTime = seekbar.value;
@@ -179,7 +179,6 @@ document.addEventListener("backbutton", onBackKeyDown, false);
 
 function onBackKeyDown(e) {
     e.preventDefault();
-    console.log(leermas);
 	if (leermas){
 		mui.overlay('off');
 		leermas = false;
@@ -195,7 +194,6 @@ function onBackKeyDown(e) {
 }
 
 $('html').swipeRight(function(){
-	console.log('Derecha');
 	if (actual_tab > 0){
 		actual_tab--;
 		$('a[data-mui-controls="'+tabs[actual_tab]+'"]').click();
@@ -203,8 +201,6 @@ $('html').swipeRight(function(){
 });
 
 $('html').swipeLeft(function(){
-	console.log('Izquierda');
-	console.log(tabs.length)
 	if (actual_tab < tabs.length){
 		actual_tab++;
 		$('a[data-mui-controls="'+tabs[actual_tab]+'"]').click();
@@ -212,7 +208,6 @@ $('html').swipeLeft(function(){
 });
 
 function notifyMe(body) {
-	console.log(body)
 	if (!('Notification' in window)) {
 		alert('This browser does not support desktop notification');
 	}
@@ -237,16 +232,16 @@ function notifyMe(body) {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	platform = device.platform;
-	onPause();
+	//onPause();
 	if (platform == 'firefoxos'){
 		var request = navigator.mozApps.getSelf();
 		request.onsuccess = function onApp(evt) {
 			app = evt.target.result;
 		}
 	}
-	document.addEventListener("pause", function(){
+	/*document.addEventListener("pause", function(){
 		console.log('Pausa');
-	}, false);
+	}, false);*/
 	//document.addEventListener("resume", onPause, false);
 }
 
@@ -265,9 +260,9 @@ $(document).ready(function(){
 	});
 });
 
-function onPause(){
+/*function onPause(){
 	Notifier.notify("Killall Radio", nowListen);
-}
+}*/
 
 window.addEventListener('unload', function () {
 	// For stop playing on app closed

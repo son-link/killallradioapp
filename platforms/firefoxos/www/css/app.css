@@ -46,17 +46,7 @@ img {
 	width: 64px;
 	background: transparent;
 }
-.escuchar_podcast {
-	background: url('../img/icons/play_alt.png') no-repeat left center;
-	padding-left: 20px;
-}
-.tuit-header {margin-bottom: 5px;}
-.tuit-header h5 {
-	margin: 0;
-}
-.tuit-header img {
-	padding-right: 5px;
-}
+
 #controles {
 	position: fixed;
 	bottom: 0;
@@ -162,18 +152,7 @@ img {
 	list-style: none;
 	margin: 0;
 }
-.icon-twitter {
-	background: url(../img/icons/twitter.png) no-repeat left top;
-}
-.icon-web {
-	background: url(../img/icons/web.png) no-repeat left top;
-}
-.icon-gplus {
-	background: url(../img/icons/gplus.png) no-repeat left top;
-}
-.icon-radio {
-	background: url(../img/icons/radio_alt.png) no-repeat left top;
-}
+
 #estado {
 	width: 100%;
 	overflow: hidden;
@@ -202,3 +181,28 @@ img {
 	padding: 5px;
 	margin-bottom: 5px;
 }
+
+.mui-btn-floating {z-index: 0}
+
+#controles a {color: #fff}
+#controles a:hover {color: #1976D2}
+
+.mui-btn-floating-mini {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+.mui-btn-floating-mini i {
+    line-height: 24px;
+}
+
+.mui-btn-floating {
+	background: #212121;
+}
+
+.mui-btn-floating:not(:disabled):hover,
+.mui-btn-floating:not(:disabled):focus,
+.mui-btn-floating:not(:disabled):active {
+	background: #424242;
+}
+.mui-btn + .mui-btn {margin-left: 0}
