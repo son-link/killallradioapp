@@ -1,12 +1,12 @@
 {
-    "version": "0.0.1",
+    "version": "0.9.0",
     "name": "Killall Radio",
     "description": "Aplicación oficial de Killall radio",
     "launch_path": "/index.html",
     "icons": {},
     "developer": {
         "name": "Alfonso Saavedra \"Son Link\"",
-        "url": "https://github.com/son-link"
+        "url": "https://son-link.github.io"
     },
     "permissions": {
         "systemXHR": {

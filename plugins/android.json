@@ -17,7 +17,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Notifier\"><param name=\"android-package\" value=\"fr.julienmarcou.smartnotifier.Notifier\" /></feature>",
+                            "xml": "<feature name=\"LocalNotification\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.localnotification.LocalNotification\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -25,8 +25,38 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest/application": [],
-                    "/manifest": []
+                    "/manifest/application": [
+                        {
+                            "xml": "<receiver android:exported=\"false\" android:name=\"de.appplant.cordova.plugin.localnotification.TriggerReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:exported=\"false\" android:name=\"de.appplant.cordova.plugin.localnotification.ClearReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:exported=\"false\" android:launchMode=\"singleInstance\" android:name=\"de.appplant.cordova.plugin.localnotification.ClickActivity\" android:theme=\"@android:style/Theme.NoDisplay\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:exported=\"false\" android:name=\"de.appplant.cordova.plugin.notification.TriggerReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:exported=\"false\" android:name=\"de.appplant.cordova.plugin.notification.ClearReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:exported=\"false\" android:launchMode=\"singleInstance\" android:name=\"de.appplant.cordova.plugin.notification.ClickActivity\" android:theme=\"@android:style/Theme.NoDisplay\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        }
+                    ]
                 }
             }
         }
@@ -38,7 +68,7 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
-        "fr.julienmarcou.smartnotifier": {
+        "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
         "cordova-plugin-console": {

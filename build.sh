@@ -12,4 +12,3 @@ mv $TMPDIR/icon* www/img/icons
 cordova build firefoxos
 mv $TMPDIR/*php www
 rm -r $TMPDIR
-adb install -r /home/sonlink/proyectos/killallradio/platforms/android/build/outputs/apk/android-debug.apk

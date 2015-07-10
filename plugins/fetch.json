@@ -23,10 +23,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "fr.julienmarcou.smartnotifier": {
+    "de.appplant.cordova.plugin.local-notification": {
         "source": {
             "type": "git",
-            "url": "https://github.com/Julien-Marcou/Smart-Notifier.git",
+            "url": "https://github.com/katzer/cordova-plugin-local-notifications",
             "subdir": "."
         },
         "is_top_level": true,

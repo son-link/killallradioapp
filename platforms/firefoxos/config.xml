@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.sonlink.killallradio" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.sonlink.killallradio" version="0.9.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <platform name="firefoxos">
         <icon height="128" src="icon/icon-128.png" width="128" />
         <icon height="60" src="icon/icon-60.png" width="60" />
@@ -12,7 +12,7 @@
     <description>
         Aplicación oficial de Killall radio
     </description>
-    <author email="sonlink.dourden@gmail.com" href="https://github.com/son-link">
+    <author email="sonlink.dourden@gmail.com" href="https://son-link.github.io">
        Alfonso Saavedra "Son Link"
     </author>
     <content src="index.html" />

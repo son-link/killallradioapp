@@ -114,9 +114,12 @@ $('.radio').click(function(e){
 	button.removeClass('icon-play').addClass('icon-pause');
 	if (platform == 'firefoxos'){
 		notifyMe('En directo');
-	}/*else{
-		nowListen('En directo');
-	}*/
+	}else{
+		cordova.plugins.notification.local.update({
+			id: 1,
+			text: 'En directo'
+		});
+	}
 	player.play();
 })
 
@@ -142,12 +145,14 @@ $('.escuchar_podcast').live('click', function(e){
 	url = $(this).attr('href');
 	txt = $(this).parent().children('h3').text();
 	$('#estado').text(txt);
-	//Notifier.notify("Killall Radio", txt);
 	if (platform == 'firefoxos'){
 		notifyMe(txt);
-	}/*else{
-		Notifier.notify("Killall Radio", txt);
-	}*/
+	}else{
+		cordova.plugins.notification.local.update({
+			id: 1,
+			text: txt
+		});
+	}
 	player.pause();
 	player.src = url;
 	player.play();
@@ -188,6 +193,7 @@ function onBackKeyDown(e) {
 			player.pause();
 			player.src = '';
 			player = null;
+			cordova.plugins.notification.local.cancelAll();
 			navigator.app.exitApp();
 		}
 	}
@@ -232,17 +238,20 @@ function notifyMe(body) {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	platform = device.platform;
-	//onPause();
 	if (platform == 'firefoxos'){
 		var request = navigator.mozApps.getSelf();
 		request.onsuccess = function onApp(evt) {
 			app = evt.target.result;
 		}
 	}
-	/*document.addEventListener("pause", function(){
-		console.log('Pausa');
-	}, false);*/
-	//document.addEventListener("resume", onPause, false);
+	// Notificaciones
+	cordova.plugins.notification.local.schedule({
+		id: 1,
+		text: "En ejecución",
+		title: 'Killall Radio',
+		sound: 'file://silence_notification.mp3',
+		ongoing: true
+	});
 }
 
 $(document).ready(function(){
@@ -260,15 +269,13 @@ $(document).ready(function(){
 	});
 });
 
-/*function onPause(){
-	Notifier.notify("Killall Radio", nowListen);
-}*/
-
-window.addEventListener('unload', function () {
+/*window.addEventListener('unload', function () {
 	// For stop playing on app closed
 	if (player){
 		player.pause();
 		player.src = '';
 		player = null;
 	}
+	cordova.plugins.notification.local.cancelAll();
 });
+*/

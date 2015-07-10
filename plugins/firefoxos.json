@@ -24,7 +24,7 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
-        "fr.julienmarcou.smartnotifier": {
+        "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
         "cordova-plugin-console": {
