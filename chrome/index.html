@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src *; img-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link href="css/mui.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/app.css" rel="stylesheet" type="text/css" />
+		<link href="css/fontello-embedded.css" rel="stylesheet" type="text/css" />
+		<title>Killall Radio</title>
+        <style>
+            html, body {overflow-y: visible;}
+        </style>
+    </head>
+    <body>
+		<div class="mui-appbar">
+			<table width="100%">
+				<tr style="vertical-align:middle;">
+					<td class="mui-appbar-height mui-text-title mui-text-white">Killall Radio</td>
+				</tr>
+			</table>
+		</div>
+		<ul class="mui-tabs mui-tabs-justified" id="tabs">
+			<li class="mui-active"><a data-mui-toggle="tab" data-mui-controls="radio">Radio</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="news">Noticias</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="podcasts">Podcasts</a></li>
+			<li><a data-mui-toggle="tab" data-mui-controls="sobre">Sobre</a></li>
+		</ul>
+		<div class="mui-tab-content">
+			<div class="mui-tab-pane mui-active" id="radio">
+				<div class="msgs mui-z1">
+					<img src="img/killall_logo.png" style="margin: 5px auto; display: block" class="radio"/>
+					Pulsa sobre el logo para empezar a escucharnos en directo o pulsa sobre el icono con forma de radio que veras abajo a la derecha desde cualquier pestaña.
+				</div>
+				<div class="msgs mui-z1" id="programacion">
+					<h2>Programación</h2>
+					<div class="seccion" id="lunes">
+						<h3><a href="#lunes" class="mostrar">Lunes</a></h3>
+						<div>
+							<ul>
+								<li>10:00: Killall Radio Podcast / <i>Repetición</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="martes">
+						<h3><a href="#martes" class="mostrar">Martes</a></h3>
+						<div>
+							<ul>
+								<li>12:00 – 14:00: Carne Cruda  / <i>En directo</i></li>
+								<li>16:00 – 18:00: Jazz Session / <i>Música</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="miercoles">
+						<h3><a href="#miercoles" class="mostrar">Miercoles</a></h3>
+						<div>
+							<ul>
+								<li>16:00 – 18:00: Carne Cruda / <i>En diferido</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="jueves">
+						<h3><a href="#jueves" class="mostrar">Jueves</a></h3>
+						<div>
+							<ul>
+								<li>12:00 – 14:00: Carne Cruda / <i>En directo</i></li>
+								<li> 16:00 – 18:00: Jazz Session / <i>Música</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="viernes">
+						<h3><a href="#viernes" class="mostrar">Viernes</a></h3>
+						<div>
+							<ul>
+								<li>16:00 – 18:00: Carne Cruda / <i>En diferido</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="sabado">
+						<h3><a href="#sabado" class="mostrar">Sábado</a></h3>
+						<div>
+							<ul>
+								<li>10:00: Killall Radio Podcast / <i>Repetición</i></li>
+								<li>16:00 – 18:00: Jazz Session / <i>Música</i></li>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="seccion" id="domingo">
+						<h3><a href="#domingo" class="mostrar">Domingo</a></h3>
+						<div>
+							<ul>
+								<li>20:00 – 21:00: Rock Session / <i>Música</i></li>
+								<li>Todo el día: Pop Session / <i>Música</i></li>
+							</ul>
+						</div>
+					</div>
+					Los horarios corresponden al horario español(<b>UTC+1</b>), una hora menos en Canarias.
+				</div>
+			</div>
+			<div class="mui-tab-pane" id="news"></div>
+			<div class="mui-tab-pane" id="podcasts"></div>
+			<div class="mui-tab-pane" id="sobre">
+				<div class="msgs mui-z1">
+					<img src="img/killall_logo.png" style="margin: 5px auto; display: block"/>
+					Proyecto online colaborativo hecho por amigos para todo el mundo.<br />
+					Tu Radio Geek Online<br />
+					Siguenos en:
+					<ul style="padding: 0">
+						<li><a href="https://killallradio.wordpress.com/" target="_black"><i class="icon-wordpress"></i>Blog</a></li>
+						<li><a href="http://killallradio.tk" target="_black"><i class="icon-radio"></i>Pagina de la radio</a></li>
+						<li><a href="https://twitter.com/killallradio" target="_black"><i class="icon-twitter"></i>Twitter</a></li>
+						<li><a href="https://plus.google.com/communities/101505410753494407114" target="_black"><i class="icon-gplus"></i>Google+</a></li>
+					</ul>
+					Aplicación creada por <a href="http://son-link.github.io" target="_black">Alfonso Saavedra "Son Link"</a>
+					<br /><b>Versión:</b> 0.9.0<br />
+					Esta aplicación es de Código Abierto y esta bajo los terminos de la licencia GPL en su versión 3. Puedes encontar el código fuente del proyecto <a href="https://github.com/son-link/killallradioapp">aquí.</a><br />
+					Aplicación creada usando HTML, CSS y Javascript mediante la plataforma <a href="https://cordova.apache.org/" target="_black">Apache Cordova</a>, ademas de los frameworks <a href="http://zeptojs.com" target="_black">Zepto.js</a> y <a href="https://www.muicss.com" target="_black">MUI</a>.
+				</div>
+			</div>
+		</div>
+		<div class="mui-panel" id="controles">
+			<a href="" id="player_button" title="Reproducir"><i class="icon-play" style="font-size: 150%"></i></a>
+			<div id="seekbar">
+				<marquee id="estado">En directo</marquee>
+				<input type="range" id="seekbar-progress">
+			</div>
+			<a href="#" class="radio" title="Escuchar en directo" style="float: right;"><i class="icon-radio" style="font-size: 150%"></i></a>
+		</div>
+
+		<script type="text/html" id="feeds">
+			<div class="msgs mui-z1">
+				<h3>{%title%}</h3>
+				<h5>Publicado el {%pubDate%}</h5>
+				<div>{%description%}</div>
+				<a class="leermas" href="#" data-id="{%id%}">Leer más</a><br />
+				<button class="mui-btn mui-btn-floating mui-btn-floating-mini" data-mui-toggle="dropdown">
+					<i class="icon-share"></i>
+				  </button>
+				  <ul class="mui-dropdown-menu">
+					<li><a target="_black" href="http://twitter.com/intent/tweet?text={%title_encode%}&url={%link%}"><i class="icon-twitter"></i>Twitter</a></li>
+					<li><a target="_black" href="http://www.facebook.com/sharer/sharer.php?u={%link%}"><i class="icon-facebook"></i>Facebook</a></li>
+					<li><a target="_black" href="https://plus.google.com/share?url={%link%}"><i class="icon-gplus"></i>Google+</a></li>
+				  </ul>
+			</div>
+		</script>
+		<script type="text/html" id="podcasts_list">
+			<div class="msgs mui-z1">
+				<h3>{%title%}</h3>
+				<h5>Publicado el {%pubDate%}</h5>
+				<div>{%description%}</div>
+				<a class="escuchar_podcast mui-btn mui-btn-floating mui-btn-floating-mini" href="{%url%}"><i class="icon-play"></i></a>
+				<div class="mui-dropdown">
+				  <button class="mui-btn mui-btn-floating mui-btn-floating-mini" data-mui-toggle="dropdown">
+					<i class="icon-share"></i>
+				  </button>
+				  <ul class="mui-dropdown-menu">
+					<li><a target="_black" href="http://twitter.com/intent/tweet?text={%title_encode%}&url={%link%}"><i class="icon-twitter"></i>Twitter</a></li>
+					<li><a target="_black" href="http://www.facebook.com/sharer/sharer.php?u={%link%}"><i class="icon-facebook"></i>Facebook</a></li>
+					<li><a target="_black" href="https://plus.google.com/share?url={%link%}"><i class="icon-gplus"></i>Google+</a></li>
+				  </ul>
+				</div>
+			</div>
+		</script>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/microtmpl.js"></script>
+		<script src="js/app.js"></script>
+    </body>
+</html>

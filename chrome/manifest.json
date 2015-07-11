@@ -1,0 +1,25 @@
+{
+  	"manifest_version": 2,
+ 	"name": "Killall Radio App",
+  	"description": "Aplicación oficial de Killall Radio",
+ 	 "version": "0.9.0",
+ 	 "app": {
+   		 "background": {
+    		"scripts": ["background.js"]
+    	}
+  	},
+	"icons": {
+		"16": "/img/icons/icon16x16.png",
+		"48": "/img/icons/icon48x48.png",
+		"60": "/img/icons/icon60x60.png",
+		"128": "/img/icons/icon128x128.png",
+		"284": "/img/icons/icon284x284.png"
+	},
+	"permissions": [
+		"notifications",
+		"http://killallradio.tk/app/x2j.php"
+  	],
+	"externally_connectable": {
+   		"matches": ["http://killallradio.tk/app/x2j.php"]
+  	}
+}

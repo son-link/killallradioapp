@@ -1,0 +1,208 @@
+body {
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+	background: #BDBDBD;
+	font-size: 15px;
+}
+.mui-tab-content {padding: 0 10px 50px 10px;}
+
+.mui-appbar {
+	padding: 0 20px;
+}
+.mui-z1 {
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.msgs{
+	margin: 10px 0;
+	padding: 5px;
+	background: #FFF
+}
+img {
+	max-width:100%;
+	height:auto;
+}
+.mui-tabs, .mui-appbar, #controles {
+	background: #212121;
+}
+.mui-tabs > li > a {
+	color: white;
+}
+.mui-tabs > li.mui-active {
+	border-color: #FFF;
+}
+
+.mui-tabs > li.mui-active > a {
+	color: #FFF;
+}
+.modal {
+	width: 90%;
+	height: auto;
+	margin: 100px auto;
+	background-color: #fff;
+	padding: 5px;
+}
+.loading {
+	margin: 160px auto;
+	width: 64px;
+	background: transparent;
+}
+
+#controles {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin: 0;
+}
+#controles img {
+	width: 24px;
+}
+#controles * {display: inline-block; float: left}
+/* slider */
+#seekbar {
+	padding-left: 10px;
+	width: 50%;
+	color: #FFF;
+}
+
+#seekbar-progress {
+  height: 10px;
+  background-color: #f5f5f5;
+  background-image: linear-gradient(to bottom, #ebebeb 0%, #f5f5f5 100%);
+  background-repeat: repeat-x;
+  border-radius: 6px;
+}
+
+#seekbar-progress [role="progressbar"] {
+  height: 100%;
+  position: relative;
+  background: #4a99ad;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+}
+
+#seekbar-progress [role="progressbar"]:after {
+  content: " ";
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -7px;
+  right: -12px;
+  background-color: #888;
+  background-image: linear-gradient(to bottom, #ccc 0%, #888 100%);
+  background-repeat: repeat-x;
+  border: 1px solid #999;
+  border-radius: 20px;  
+}
+
+#seekbar input[type="range"] {
+  -webkit-appearance: none;
+  margin: 0;
+  z-index: 2;
+  background: #fff;
+  outline: 0;
+  border: 0;
+  height: 3px;
+}
+
+#seekbar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+#seekbar input[type="range"]::-webkit-slider-thumb:hover {
+	box-shadow: 0 0 5px #000;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+
+/*
+ Mozilla:
+ https://developer.mozilla.org/en-US/docs/User:Jonathan_Watt/range
+*/
+#seekbar input[type="range"]::-moz-range-thumb {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 0;
+}
+
+#seekbar input[type="range"]::-moz-range-track {
+  background: #fff;
+  border: 0;
+}
+#seekbar input[type="range"]::-moz-range-thumb:hover {
+	box-shadow: 0 0 5px #000;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+
+#seekbar input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+#sobre li {
+	padding: 3px 0px 3px 25px;
+	list-style: none;
+	margin: 0;
+}
+
+#estado {
+	width: 100%;
+	overflow: hidden;
+}
+
+#programacion h3 {
+	margin: 0;
+}
+	
+#programacion h3 + div{
+	max-height: 0;
+	overflow: hidden;
+	
+	/* Transición */
+	-moz-transition: max-height 0.5s ease-in;
+	-webkit-transition: max-height 0.5s ease-in;
+	transition: max-height 0.5s ease-in;
+}
+
+#programacion  h3 + div.active {
+	max-height: 120px;
+}
+
+.seccion {
+	border: 1px solid #111;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+.mui-btn-floating {z-index: 0}
+
+#controles a {color: #fff}
+#controles a:hover {color: #1976D2}
+
+.mui-btn-floating-mini {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+.mui-btn-floating-mini i {
+    line-height: 24px;
+}
+
+.mui-btn-floating {
+	background: #212121;
+}
+
+.mui-btn-floating:not(:disabled):hover,
+.mui-btn-floating:not(:disabled):focus,
+.mui-btn-floating:not(:disabled):active {
+	background: #424242;
+}
+.mui-btn + .mui-btn {margin-left: 0}

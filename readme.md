@@ -4,4 +4,4 @@
 
 **Killall Radio** es un proyecto online colaborativo hecho por amigos para todo el mundo. Tu Radio Geek Online
 
-App para **Firefox OS y Android** usando tecnologias web con [**Apache Cordova**](http://cordova.apache.org/) y bajo licencia **GPLv3**
+App para **Firefox OS y Android** usando tecnologias web con [**Apache Cordova**](http://cordova.apache.org/) y bajo licencia **GPLv3** y tambien disponoble para **Google Chrome y Chromium**
