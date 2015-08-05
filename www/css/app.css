@@ -161,7 +161,31 @@ img {
 #programacion h3 {
 	margin: 0;
 }
-	
+
+#programacion h3 > a {display:block; width: 100%}
+#programacion h3 > a > span{float: right}
+#programacion h3 > a:hover {text-decoration: none}
+#programacion li {
+	list-style: none;
+}
+
+#programacion li:before {
+	font-family: fontello;
+	content: '\e809';
+	padding-right: 5px;
+}
+
+#canales li a:before {
+	font-family: fontello;
+	content: '\e80a';
+	padding-right: 5px;
+	width: 20px;
+	text-align: center;
+	display: inline-block;
+}
+#act_canales:before {
+	content: '\e80b' !important;
+}
 #programacion h3 + div{
 	max-height: 0;
 	overflow: hidden;
@@ -204,5 +228,6 @@ img {
 .mui-btn-floating:not(:disabled):focus,
 .mui-btn-floating:not(:disabled):active {
 	background: #424242;
+	color: #fff;
 }
 .mui-btn + .mui-btn {margin-left: 0}

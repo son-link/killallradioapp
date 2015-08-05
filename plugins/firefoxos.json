@@ -11,6 +11,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"firefoxos-package\" value=\"Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<permission name=\"systemXHR\" privileged=\"true\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -18,18 +22,25 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "io.sonlink.killallradio"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "io.sonlink.killallradio"
+        }
+    }
 }

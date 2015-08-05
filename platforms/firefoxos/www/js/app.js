@@ -11,10 +11,7 @@ var seekbar = document.getElementById('seekbar-progress');
 seekbar.disabled = true;
 var leermas = false;
 var tabs = ['news', 'podcasts', 'sobre'];
-var actual_tab = 0;
-var app;
-var platform; nowListen = 'Killall Radio';
-var dia_activo;
+var actual_tab = 0, app, platform, nowListen = 'Killall Radio', dia_activo, canal;
 function convertTime(date){
 	dateOptions = {
 		weekday: "long", year: "numeric", month: "short",
@@ -73,21 +70,35 @@ function getNews(){
 }
 
 function getPodcasts(){
-	url = 'http://killallradio.tk/app/x2j.php?url=http://www.ivoox.com/killall-radio_fg_f1129480_filtro_1.xml';
+	
+	url = 'http://killallradio.tk/app/x2j.php?url=http://www.ivoox.com/'+canal+'_filtro_1.xml';
+	console.log(url);
 	getData(url, function(responseText){
-		$('#podcasts').empty();
+		$('#podcasts_list').empty();
 		feed = responseText.rss.channel;
 		pod = {}
-		$.each(feed.item, function(key, value){
-			pod.pubDate = convertTime(value.pubDate);
-			pod.title = value.title;
-			pod.description = value.description;
-			pod.url = value.enclosure.url;
-			pod.link = value.link;
-			pod.title_encode = encodeURIComponent(value.title);
-			$('#podcasts').append(MicroTmpl('podcasts_list', pod));
+		if (Array.isArray(feed.item)){
+			$.each(feed.item, function(key, value){
+				pod.pubDate = convertTime(value.pubDate);
+				pod.title = value.title;
+				pod.description = value.description;
+				pod.url = value.enclosure.url;
+				pod.link = value.link;
+				pod.title_encode = encodeURIComponent(value.title);
+				$('#podcasts_list').append(MicroTmpl('podcasts_views', pod));
+				podcasts_items += (pod);
+			});
+		}else{
+			item = feed.item;
+			pod.pubDate = convertTime(item.pubDate);
+			pod.title = item.title;
+			pod.description = item.description;
+			pod.url = item.enclosure.url;
+			pod.link = item.link;
+			pod.title_encode = encodeURIComponent(item.title);
+			$('#podcasts_list').append(MicroTmpl('podcasts_views', pod));
 			podcasts_items += (pod);
-		});
+		};
 	});
 }
 
@@ -172,7 +183,10 @@ $('#tabs a').click(function(e){
 		getNews();
 	}else if (tab == 'podcasts'){
 		actual_tab = 1;
-		getPodcasts();
+		if ($('#canales').is(':empty')){
+			setChannelsList();
+		}
+		//getPodcasts();
 	}else{
 		actual_tab = 2;
 	}
@@ -243,6 +257,8 @@ function onDeviceReady() {
 		request.onsuccess = function onApp(evt) {
 			app = evt.target.result;
 		}
+		var sdcard = navigator.getDeviceStorage("sdcard");
+		console.log(sdcard);
 	}
 	// Notificaciones
 	cordova.plugins.notification.local.schedule({
@@ -250,6 +266,7 @@ function onDeviceReady() {
 		text: "En ejecución",
 		title: 'Killall Radio',
 		sound: 'file://silence_notification.mp3',
+		smallIcon: "icon",
 		ongoing: true
 	});
 }
@@ -269,7 +286,81 @@ $(document).ready(function(){
 	});
 });
 
-/*window.addEventListener('unload', function () {
+$('#canales a').live('click', function(e){
+	e.preventDefault();
+	if ($(this).attr('id') != 'act_canales'){
+		canal = $(this).attr('data-podcastid');
+		name = $(this).text();
+		$('#channels_button').text(name);
+		getPodcasts();
+		
+	}else{
+		getChannelsList();
+	}
+});
+
+$('#act_canal').live('click', function(e){
+	if (canal){
+		getPodcasts();
+	}
+});
+
+function setChannelsList(){
+    channels = localStorage.getItem('channels')
+    if (channels){
+		json = JSON.parse(channels);
+		$.each(json.channels, function(key, value){
+			li = '<li><a href="#" data-podcastid="'+value.id+'">'+value.name+'</a></li>';
+			$('#canales').append(li);
+		});
+		$('#canales').append('<li><a href="#" id="act_canales">Actualizar lista</a></li>')
+	}else{
+		getChannelsList()
+	}
+}
+
+function getChannelsList(){
+	url = 'https://gist.githubusercontent.com/son-link/8cf06a31bc81a0870110/raw';
+	$.getJSON(url, function(data){
+		localStorage.removeItem('channels');
+		localStorage.setItem('channels', JSON.stringify(data));
+		$('#canales').empty();
+		setChannelsList();
+	});
+}
+
+$('.download').live('click', function(){
+	var fileTransfer = new FileTransfer();
+	url = $(this).attr('data-url');
+	name = $(this).attr('data-name').replace('#', '');
+	var uri = encodeURI(url);
+	platform = device.platform;
+		if (platform == 'firefoxos'){
+			fileURL = name;
+		}else{
+			fileURL = "cdvfile://localhost/persistent/"+name;
+		}
+	fileTransfer.download(
+		uri,
+		fileURL,
+		function(entry) {
+			cordova.plugins.notification.local.schedule({
+				id: 2,
+				text: "Descarga completa: "+entry.toURL(),
+				title: 'Killall Radio',
+				sound: 'file://silence_notification.mp3',
+				smallIcon: "icon"
+			});
+		},
+		function(error) {
+			console.error("download error source " + error.source);
+			console.error("download error target " + error.target);
+			console.error("upload error code" + error.code);
+		}
+	);
+});
+
+window.addEventListener('unload', function () {
 	// For stop playing on app closed
 	if (player){
 		player.pause();
@@ -278,4 +369,3 @@ $(document).ready(function(){
 	}
 	cordova.plugins.notification.local.cancelAll();
 });
-*/
